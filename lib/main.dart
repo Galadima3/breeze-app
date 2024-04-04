@@ -24,13 +24,16 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             bodyText1: TextStyle(
               color: Colors.white,
-            ), // Adjust as needed for different text styles
-            bodyText2: TextStyle(
-                color:
-                    Colors.white), // Adjust as needed for different text styles
+            ),
+            bodyText2: TextStyle(color: Colors.white),
             headline1: TextStyle(color: Colors.white),
           )),
       home: const HomeScreen(),
     );
   }
 }
+
+//TODO:  
+//add custom theme
+//add charts for weather forecase
+//complete forecast section

@@ -34,7 +34,7 @@ class Datum {
     final double dni;
     final double elevAngle;
     final double ghi;
-    final double gust;
+    
     final int hAngle;
     final double lat;
     final double lon;
@@ -74,7 +74,7 @@ class Datum {
         required this.dni,
         required this.elevAngle,
         required this.ghi,
-        required this.gust,
+        
         required this.hAngle,
         required this.lat,
         required this.lon,
@@ -115,7 +115,7 @@ class Datum {
         dni: json["dni"]?.toDouble(),
         elevAngle: json["elev_angle"]?.toDouble(),
         ghi: json["ghi"]?.toDouble(),
-        gust: json["gust"]?.toDouble(),
+     
         hAngle: json["h_angle"],
         lat: json["lat"]?.toDouble(),
         lon: json["lon"]?.toDouble(),
@@ -156,7 +156,6 @@ class Datum {
         "dni": dni,
         "elev_angle": elevAngle,
         "ghi": ghi,
-        "gust": gust,
         "h_angle": hAngle,
         "lat": lat,
         "lon": lon,

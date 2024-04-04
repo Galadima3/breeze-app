@@ -7,16 +7,18 @@ class MainWeatherTile extends StatelessWidget {
     super.key,
     required this.dateTime,
     required this.essex,
+    required this.screenWidth,
   });
 
   final DateTime dateTime;
   final Datum essex;
+  final double screenWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      width: double.infinity,
+      width: screenWidth < 400 ? 375 : double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xFF2E2D2D),
         borderRadius: BorderRadius.circular(20),
@@ -52,7 +54,7 @@ class MainWeatherTile extends StatelessWidget {
                     )
                   ],
                 ),
-            
+
                 //2
                 Text(
                   '${essex.temp.toStringAsFixed(0)}\u00B0C',
@@ -63,7 +65,10 @@ class MainWeatherTile extends StatelessWidget {
               ],
             ),
             //YY
-            Image.asset('assets/icons/${essex.weather.icon}.png', fit: BoxFit.fill, )
+            Image.asset(
+              'assets/icons/${essex.weather.icon}.png',
+              fit: BoxFit.fill,
+            )
           ],
         ),
       ),

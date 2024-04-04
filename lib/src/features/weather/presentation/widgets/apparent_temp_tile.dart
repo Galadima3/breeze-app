@@ -35,6 +35,7 @@ class ApparentTempTile extends StatelessWidget {
                   width: 45,
                   child: SvgPicture.asset(
                     'assets/temp.svg',
+                    // ignore: deprecated_member_use
                     color: Colors.white,
                   ),
                 ),

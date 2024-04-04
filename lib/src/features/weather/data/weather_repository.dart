@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 import 'package:breeze/env/env.dart';
 import 'package:breeze/src/features/weather/data/geo_repository.dart';
@@ -11,15 +10,16 @@ class WeatherRepository {
 
   //get weather based on Geocoordinates
   Future<WeatherModel> getCoordinateWeather() async {
-    final geo = await GeolocationRepository().getCurrentLocation();
-    final response = await dio.get(
-        'https://api.weatherbit.io/v2.0/current?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}');
-    log(response.data.toString());
-
-    var rex = response.data;
-    return WeatherModel.fromJson(rex);
-    // log(rex.map((weather) => WeatherModel.fromJson(weather)));
-    // return rex.map((weather) => WeatherModel.fromJson(weather));
+    try {
+      final geo = await GeolocationRepository().getCurrentLocation();
+      final response = await dio.get(
+          'https://api.weatherbit.io/v2.0/current?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}');
+      log(response.data.toString());
+      return WeatherModel.fromJson(response.data);
+    } catch (e) {
+      log('Error: $e'); 
+      throw Exception(e.toString()); 
+    }
   }
 }
 
@@ -29,5 +29,6 @@ final weatherRepositoryProvider = Provider<WeatherRepository>((ref) {
 
 final tempProvider = FutureProvider<WeatherModel>((ref) async {
   final data = ref.read(weatherRepositoryProvider);
+  //print(data.getCoordinateWeather());
   return data.getCoordinateWeather();
 });
