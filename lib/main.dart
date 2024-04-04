@@ -33,7 +33,24 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//TODO:  
-//add custom theme
-//add charts for weather forecase
+//TODO:
+
+//add charts for weather forecast
 //complete forecast section
+
+ThemeData customTheme = ThemeData(
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+  fontFamily: GoogleFonts.urbanist().fontFamily,
+  useMaterial3: true,
+  textTheme: const TextTheme(
+    bodyText1: TextStyle(
+      color: Colors.white,
+    ),
+    
+  ),
+);
+
+
+// bodyText2: const TextStyle(color: Colors.white, fontSize: 18.5, fontWeight: FontWeight.w200),
+    // bodyMedium: const TextStyle(color: Colors.white, fontSize: 18.5, fontWeight: FontWeight.w200),
+    // headline1: const TextStyle(color: Colors.white),
