@@ -1,7 +1,8 @@
 import 'dart:developer';
 import 'package:breeze/env/env.dart';
 import 'package:breeze/src/features/weather/data/geo_repository.dart';
-import 'package:breeze/src/features/weather/domain/hourly_weather_model.dart';
+import 'package:breeze/src/features/weather/domain/daily_weather_model.dart';
+
 import 'package:breeze/src/features/weather/domain/weather_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,14 +24,14 @@ class WeatherRepository {
     }
   }
 
-  Future<HourlyWeatherModel> getHourlyWeather() async {
+  Future<DailyWeatherModel> getDailyForecast() async {
     try {
       final geo = await GeolocationRepository().getCurrentLocation();
       final response = await dio.get(
-          'https://api.weatherbit.io/v2.0/forecast/hourly?&lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}&hours=24');
+          'https://api.weatherbit.io/v2.0/forecast/daily?&lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}&hours=24');
 
       //log(response.data.toString());
-      return HourlyWeatherModel.fromJson(response.data);
+      return DailyWeatherModel.fromJson(response.data);
     } catch (e) {
       log('Error: $e');
       throw Exception(e.toString());
@@ -47,7 +48,7 @@ final tempProvider = FutureProvider<WeatherModel>((ref) async {
   return data.getCoordinateWeather();
 });
 
-final hourlyWeatherProvider = FutureProvider<HourlyWeatherModel>((ref) async {
+final dailyWeatherProvider = FutureProvider<DailyWeatherModel>((ref) async {
   final data = ref.read(weatherRepositoryProvider);
-  return data.getHourlyWeather();
+  return data.getDailyForecast();
 });

@@ -34,9 +34,7 @@ class MyApp extends StatelessWidget {
 }
 
 //TODO:
-
-//add charts for weather forecast
-//complete forecast section
+//Work on search functionality
 
 ThemeData customTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
@@ -50,7 +48,3 @@ ThemeData customTheme = ThemeData(
   ),
 );
 
-
-// bodyText2: const TextStyle(color: Colors.white, fontSize: 18.5, fontWeight: FontWeight.w200),
-    // bodyMedium: const TextStyle(color: Colors.white, fontSize: 18.5, fontWeight: FontWeight.w200),
-    // headline1: const TextStyle(color: Colors.white),

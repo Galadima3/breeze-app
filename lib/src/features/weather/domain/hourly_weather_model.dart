@@ -1,8 +1,6 @@
 // To parse this JSON data, do
 //
 //     final hourlyWeatherModel = hourlyWeatherModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HourlyWeatherModel hourlyWeatherModelFromJson(String str) =>
