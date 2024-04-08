@@ -42,7 +42,9 @@ class ApparentTempTile extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                Text('${essex.appTemp.toStringAsFixed(0)}\u00B0C',)
+                Text('${essex.appTemp.toStringAsFixed(0)}\u00B0C',
+                
+                )
               ],
             )
           ],

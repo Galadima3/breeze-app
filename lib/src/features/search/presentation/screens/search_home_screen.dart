@@ -1,5 +1,5 @@
-// ignore_for_file: deprecated_member_use
-import 'package:breeze/src/features/weather/data/weather_repository.dart';
+import 'package:breeze/src/features/search/data/search_repository.dart';
+import 'package:breeze/src/features/search/presentation/widgets/search_forecast_tile.dart';
 import 'package:breeze/src/features/weather/presentation/screens/custom_screen.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/apparent_temp_tile.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/forecast_tile.dart';
@@ -10,13 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key});
+class SearchHomeScreen extends ConsumerWidget {
+  final String searchTerm;
+  const SearchHomeScreen({super.key, required this.searchTerm});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    final tempData = ref.watch(tempProvider);
+    final tempData = ref.watch(searchTempProvider(searchTerm));
 
     return tempData.when(
       data: (data) {
@@ -27,20 +28,13 @@ class HomeScreen extends ConsumerWidget {
         return Scaffold(
           backgroundColor: Colors.black,
           appBar: AppBar(
-            title: Row(
-              children: [
-                const Icon(Icons.location_pin),
-                Text(
-                  essex.cityName,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
+            title: Text(
+              essex.cityName,
+              style: const TextStyle(color: Colors.white),
             ),
+            centerTitle: true,
             actions: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () => context.goNamed(RoutePaths.searchScreenRoute),
-              ),
+              IconButton(onPressed: () => context.pushReplacementNamed(RoutePaths.homeScreenRoute), icon: const Icon(Icons.home))
             ],
           ),
           body: SingleChildScrollView(
@@ -83,7 +77,9 @@ class HomeScreen extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(12),
                         color: const Color(0xFF2E2D2D),
                       ),
-                      child: const ForecastTile())
+                      child: SearchForecastTile(
+                        searchTerm: searchTerm,
+                      ))
                 ],
               ),
             ),

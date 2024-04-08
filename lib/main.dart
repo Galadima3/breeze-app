@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
+import 'package:breeze/src/config/custom_theme.dart';
 import 'package:breeze/src/features/weather/presentation/screens/home_screen.dart';
+import 'package:breeze/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,21 +21,11 @@ class MyApp extends StatelessWidget {
       designSize: const Size(411, 867),
       minTextAdapt: false,
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              fontFamily: GoogleFonts.urbanist().fontFamily,
-              useMaterial3: true,
-              textTheme: const TextTheme(
-                bodyText1: TextStyle(
-                  color: Colors.white,
-                ),
-                bodyText2: TextStyle(color: Colors.white),
-                headline1: TextStyle(color: Colors.white),
-              )),
-          home: const HomeScreen(),
+          theme: customTheme,
+          routerConfig: router,
         );
       },
     );
@@ -42,13 +34,3 @@ class MyApp extends StatelessWidget {
 
 //TODO:
 //Work on search functionality
-ThemeData customTheme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-  fontFamily: GoogleFonts.urbanist().fontFamily,
-  useMaterial3: true,
-  textTheme: const TextTheme(
-    bodyText1: TextStyle(
-      color: Colors.white,
-    ),
-  ),
-);

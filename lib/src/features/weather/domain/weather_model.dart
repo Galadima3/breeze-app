@@ -23,29 +23,29 @@ class WeatherModel {
 }
 
 class Datum {
-    final double appTemp;
+    final num appTemp;
     final int aqi;
     final String cityName;
     final int clouds;
     final String countryCode;
     final String datetime;
-    final double dewpt;
-    final double dhi;
-    final double dni;
-    final double elevAngle;
-    final double ghi;
+    final num dewpt;
+    final num dhi;
+    final num dni;
+    final num elevAngle;
+    final num ghi;
     
     final int hAngle;
-    final double lat;
-    final double lon;
+    final num lat;
+    final num lon;
     final String obTime;
     final String pod;
     final int precip;
-    final double pres;
+    final num pres;
     final int rh;
-    final double slp;
+    final num slp;
     final int snow;
-    final double solarRad;
+    final num solarRad;
     final List<String> sources;
     final String stateCode;
     final String station;
@@ -54,13 +54,13 @@ class Datum {
     final num temp;
     final String timezone;
     final int ts;
-    final double uv;
+    final num uv;
     final int vis;
     final Weather weather;
     final String windCdir;
     final String windCdirFull;
     final int windDir;
-    final double windSpd;
+    final num windSpd;
 
     Datum({
         required this.appTemp,
