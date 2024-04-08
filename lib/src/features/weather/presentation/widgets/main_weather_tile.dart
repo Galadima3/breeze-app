@@ -20,10 +20,10 @@ class MainWeatherTile extends StatelessWidget {
       height: 200,
       width: screenWidth < 400 ? 375 : double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xFF2E2D2D),
+        //color: const Color(0xFF2E2D2D),
         borderRadius: BorderRadius.circular(20),
         gradient: const LinearGradient(
-          colors: [Colors.purple, Colors.blue],
+          colors: [const Color(0xFF2980B9), const Color(0xFF64B5F6)],
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
         ),

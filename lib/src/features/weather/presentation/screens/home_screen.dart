@@ -27,6 +27,7 @@ class HomeScreen extends ConsumerWidget {
         return Scaffold(
           backgroundColor: Colors.black,
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Row(
               children: [
                 const Icon(Icons.location_pin),

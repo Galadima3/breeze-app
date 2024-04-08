@@ -29,7 +29,7 @@ class SearchHomeScreen extends ConsumerWidget {
           backgroundColor: Colors.black,
           appBar: AppBar(
             title: Text(
-              essex.cityName,
+              '${essex.cityName},${essex.countryCode}',
               style: const TextStyle(color: Colors.white),
             ),
             centerTitle: true,
