@@ -1,4 +1,4 @@
-import 'package:breeze/src/features/weather/domain/weather_model.dart';
+import 'package:breeze/src/features/weather/model/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -20,10 +20,9 @@ class MainWeatherTile extends StatelessWidget {
       height: 200,
       width: screenWidth < 400 ? 375 : double.infinity,
       decoration: BoxDecoration(
-        //color: const Color(0xFF2E2D2D),
         borderRadius: BorderRadius.circular(20),
         gradient: const LinearGradient(
-          colors: [const Color(0xFF2980B9), const Color(0xFF64B5F6)],
+          colors: [Color(0xFF2980B9), Color(0xFF64B5F6)],
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
         ),

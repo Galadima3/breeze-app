@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:breeze/src/features/weather/domain/geo_model.dart';
+import 'package:breeze/src/features/weather/model/geo_model.dart';
 import 'package:geolocator/geolocator.dart';
 
 class GeolocationRepository {

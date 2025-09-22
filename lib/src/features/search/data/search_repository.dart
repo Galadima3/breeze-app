@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:breeze/env/env.dart';
-import 'package:breeze/src/features/weather/domain/daily_weather_model.dart';
-import 'package:breeze/src/features/weather/domain/weather_model.dart';
+import 'package:breeze/src/features/weather/model/daily_weather_model.dart';
+import 'package:breeze/src/features/weather/model/weather_model.dart';
 import 'package:dio/dio.dart';
 
 class SearchRepository {
@@ -12,7 +11,7 @@ class SearchRepository {
   Future<WeatherModel> getSearchWeather(String searchTerm) async {
     try {
       final response = await dio.get(
-          'https://api.weatherbit.io/v2.0/current?city=$searchTerm&key=${Env.myApiKey}');
+          'https://api.weatherbit.io/v2.0/current?city=$searchTerm&key=${Env.apiKey}');
 
       return WeatherModel.fromJson(response.data);
     } catch (e) {
@@ -27,7 +26,7 @@ class SearchRepository {
           'https://api.weatherbit.io/v2.0/forecast/daily',
           queryParameters: {
             'city': searchTerm,
-            'key': Env.myApiKey,
+            'key': Env.apiKey,
             'hours': '24'
           });
 

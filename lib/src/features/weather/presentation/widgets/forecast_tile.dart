@@ -1,4 +1,4 @@
-import 'package:breeze/src/features/weather/data/weather_repository.dart';
+import 'package:breeze/src/features/weather/service/weather_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

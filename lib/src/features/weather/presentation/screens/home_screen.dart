@@ -1,5 +1,5 @@
 // ignore_for_file: deprecated_member_use
-import 'package:breeze/src/features/weather/data/weather_repository.dart';
+import 'package:breeze/src/features/weather/service/weather_repository.dart';
 import 'package:breeze/src/features/weather/presentation/screens/custom_screen.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/apparent_temp_tile.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/forecast_tile.dart';

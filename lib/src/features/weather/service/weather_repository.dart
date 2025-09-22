@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:breeze/env/env.dart';
-import 'package:breeze/src/features/weather/data/geo_repository.dart';
-import 'package:breeze/src/features/weather/domain/daily_weather_model.dart';
+import 'package:breeze/src/features/weather/service/geo_repository.dart';
+import 'package:breeze/src/features/weather/model/daily_weather_model.dart';
 
-import 'package:breeze/src/features/weather/domain/weather_model.dart';
+import 'package:breeze/src/features/weather/model/weather_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
@@ -19,8 +19,9 @@ class WeatherRepository {
     try {
       final geo = await GeolocationRepository().getCurrentLocation();
       final response = await dio.get(
-          'https://api.weatherbit.io/v2.0/current?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}');
-      
+          'https://api.openweathermap.org/data/2.5/weather?lat=${geo.latitude}&lon=${geo.longitude}&appid=${Env.apiKey}'
+          //'https://api.weatherbit.io/v2.0/current?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.apiKey}');
+      );
       return WeatherModel.fromJson(response.data);
     } catch (e) {
       log('Error: $e');
@@ -32,7 +33,7 @@ class WeatherRepository {
   try {
     final geo = await GeolocationRepository().getCurrentLocation();
     final url = Uri.parse(
-        'https://api.weatherbit.io/v2.0/forecast/daily?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.myApiKey}&hours=24');
+        'https://api.weatherbit.io/v2.0/forecast/daily?lat=${geo.latitude}&lon=${geo.longitude}&key=${Env.apiKey}&hours=24');
 
     final response = await http.get(url);
 

@@ -2,7 +2,6 @@ import 'package:breeze/src/features/search/data/search_repository.dart';
 import 'package:breeze/src/features/search/presentation/widgets/search_forecast_tile.dart';
 import 'package:breeze/src/features/weather/presentation/screens/custom_screen.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/apparent_temp_tile.dart';
-import 'package:breeze/src/features/weather/presentation/widgets/forecast_tile.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/main_weather_tile.dart';
 import 'package:breeze/src/features/weather/presentation/widgets/weather_meta_tile.dart';
 import 'package:breeze/src/routing/route_paths.dart';

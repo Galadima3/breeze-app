@@ -7,12 +7,19 @@ final customTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
   fontFamily: GoogleFonts.urbanist().fontFamily,
   useMaterial3: true,
-  textTheme: const TextTheme(
-    bodyText1: TextStyle(
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(
       color: Colors.white,
+      fontFamily: GoogleFonts.urbanist().fontFamily,
     ),
-    bodyText2: TextStyle(color: Colors.white),
-    headline1: TextStyle(color: Colors.white),
+    bodyMedium: TextStyle(
+      color: Colors.white,
+      fontFamily: GoogleFonts.urbanist().fontFamily,
+    ),
+    headlineLarge: TextStyle(
+      color: Colors.white,
+      fontFamily: GoogleFonts.urbanist().fontFamily,
+    ),
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Colors.black,

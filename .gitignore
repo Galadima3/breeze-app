@@ -31,6 +31,9 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+# Envied
+.env
+/lib/env/env.g.dart
 /lib/env/
 
 # Symbolication related

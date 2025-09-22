@@ -1,4 +1,4 @@
-import 'package:breeze/src/features/weather/domain/weather_model.dart';
+import 'package:breeze/src/features/weather/model/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
